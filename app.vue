@@ -48,7 +48,7 @@ const onSubmit = form.handleSubmit(async (values) => {
 
 <template>
   <!-- <Toaster /> -->
-  <div class="h-full flex flex-col justify-center">
+  <div class="h-full flex flex-col justify-center px-8">
     <form @submit.prevent="onSubmit" class="mx-auto w-full max-w-md space-y-2">
       <FormField name="username" v-slot="{ componentField }">
         <FormItem>
