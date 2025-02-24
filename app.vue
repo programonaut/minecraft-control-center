@@ -19,7 +19,6 @@ const isRunning = ref(false);
 onMounted(async () => {
   const res = await useFetch("/api/status");
   isRunning.value = res.data.value?.isRunning ?? false;
-  isRunning.value = false;
 });
 
 const formSchema = toTypedSchema(
