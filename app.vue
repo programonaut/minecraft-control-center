@@ -54,7 +54,11 @@ const onSubmit = form.handleSubmit(async (values) => {
         <FormItem>
           <FormLabel>Username</FormLabel>
           <FormControl>
-            <Input type="text" placeholder="shadcn" v-bind="componentField" />
+            <Input
+              type="text"
+              placeholder="Your minecraft name"
+              v-bind="componentField"
+            />
           </FormControl>
           <FormDescription>
             The server is currently
