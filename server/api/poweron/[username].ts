@@ -34,6 +34,7 @@ export default defineEventHandler(async (event) => {
     const startRes = await $fetch<{ server: { status: string } }>(
       "https://api.hetzner.cloud/v1/servers/" + serverId + "/actions/poweron",
       {
+        method: "POST",
         headers: {
           Authorization: `Bearer ${apiKey}`,
         },
