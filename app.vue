@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 const isRunning = ref(false);
 onMounted(async () => {
   const res = await useFetch("/api/status");
-  isRunning.value = res.data.value?.isRunning ?? false;
+  isRunning.value = res.data.value?.isRunning ?? true;
 });
 
 const formSchema = toTypedSchema(
@@ -42,6 +42,7 @@ const onSubmit = form.handleSubmit(async (values) => {
   }
 
   loading.value = false;
+  isRunning.value = true;
 });
 </script>
 
@@ -58,13 +59,15 @@ const onSubmit = form.handleSubmit(async (values) => {
           <FormDescription>
             The server is currently
             <span class="font-bold">{{
-              isRunning ? "online!" : "offline!"
+              loading ? "starting!" : isRunning ? "online!" : "offline!"
             }}</span>
           </FormDescription>
           <FormMessage />
         </FormItem>
       </FormField>
-      <Button type="submit" :disabled="isRunning"> Start the server </Button>
+      <Button type="submit" :disabled="isRunning || loading">
+        Start the server
+      </Button>
     </form>
   </div>
 </template>
