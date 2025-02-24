@@ -15,10 +15,10 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
-const isRunning = ref(false);
+const isRunning = ref(true);
 onMounted(async () => {
   const res = await useFetch("/api/status");
-  isRunning.value = res.data.value?.isRunning ?? true;
+  isRunning.value = res.data.value?.isRunning ?? false;
 });
 
 const formSchema = toTypedSchema(
