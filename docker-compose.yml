@@ -1,0 +1,19 @@
+services:
+  minecraft:
+    container_name: minecraft
+    image: itzg/minecraft-server
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      TYPE: "AUTO_CURSEFORGE"
+      CF_API_KEY: "api key"
+      CF_SLUG: "hazardousdaniels-unlimited"
+      VERSION: "1.19.2"
+      MEMORY: "4G"
+      ENABLE_AUTOSTOP: TRUE
+    volumes:
+      # attach the relative directory 'data' to the container's /data path
+      - ./minecraft:/data

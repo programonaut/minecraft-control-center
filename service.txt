@@ -1,0 +1,12 @@
+[Unit]
+Description=Docker Container Minecraft Service
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/docker start -a minecraft
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
